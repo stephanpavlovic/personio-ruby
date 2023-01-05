@@ -67,7 +67,6 @@ class EmployeeModel
   end
 
   def team=(value)
-    puts "###########{value&.dig('attributes', 'name')}############"
     @team = value&.dig('attributes', 'name')
   end
 end
