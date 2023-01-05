@@ -3,7 +3,7 @@ class EmployeeModel
   # Personio fields to set on the employee model
   FIELDS = %i[
     id first_name last_name email status position supervisor employment_type
-    department office
+    department office vacation_day_balance weekly_working_hours team
   ].freeze
 
   # @return [Integer] The personio id
@@ -26,6 +26,12 @@ class EmployeeModel
   attr_reader :department
   # @return [String] The employees office name
   attr_reader :office
+  # @return [Float] The employees current vacation day balance
+  attr_accessor :vacation_day_balance
+  # @return [Float] The employees weekly working hours
+  attr_reader :weekly_working_hours
+  # @return [String] The employees team name
+  attr_reader :team
 
   def initialize(args)
     # Auto set plain text fields
@@ -54,5 +60,14 @@ class EmployeeModel
   def office=(value)
     value = value['attributes']['name'] unless value.nil?
     @office = value
+  end
+
+  def weekly_working_hours=(value)
+    @weekly_working_hours = value.to_i unless value.nil?
+  end
+
+  def team=(value)
+    puts "###########{value&.dig('attributes', 'name')}############"
+    @team = value&.dig('attributes', 'name')
   end
 end
