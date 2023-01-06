@@ -1,4 +1,5 @@
 require_relative 'api/employees_api'
+require_relative 'api/absences_api'
 
 # Personio API as instance
 class PersonioApi
@@ -18,5 +19,12 @@ class PersonioApi
   # @return [{EmployeesApi api}] the personio employees api
   def employees
     @employees_api ||= EmployeesApi.new(@config)
+  end
+
+  # Gets an instance of the personio absenses api to query absenses
+  #
+  # @return [{AbsencesApi api}] the personio employees api
+  def absences
+    @absences_api ||= AbsencesApi.new(@config)
   end
 end

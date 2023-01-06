@@ -1,4 +1,5 @@
 require 'personio/api/employees_api'
+require 'personio/api/absences_api'
 require 'personio/api/api_stub'
 
 # Personio entry point
@@ -52,5 +53,12 @@ module Personio
   # @return [{EmployeesApi api}] the personio employees api
   def self.employees
     @employees_api ||= EmployeesApi.new(configuration)
+  end
+
+  # Gets an instance of the personio absences api to query absences
+  #
+  # @return [{AbsensesApi api}] the personio employees api
+  def self.absences
+    @employees_api ||= AbsencesApi.new(configuration)
   end
 end
