@@ -59,6 +59,6 @@ module Personio
   #
   # @return [{AbsensesApi api}] the personio employees api
   def self.absences
-    @employees_api ||= AbsencesApi.new(configuration)
+    @absences ||= AbsencesApi.new(configuration)
   end
 end

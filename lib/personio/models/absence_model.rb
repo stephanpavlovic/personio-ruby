@@ -4,6 +4,7 @@ class AbsenceModel
   FIELDS = %i[].freeze
 
   attr_accessor :attributes
+
   def initialize(args)
     # Auto set plain text fields
     @attributes = args
@@ -11,6 +12,6 @@ class AbsenceModel
     #   send("#{key}=", value['value']) \
     #     if AbsenceModel::FIELDS.include?(key.to_sym)
     # end
-    # args
+    args
   end
 end
