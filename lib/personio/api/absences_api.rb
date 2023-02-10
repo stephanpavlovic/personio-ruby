@@ -10,7 +10,7 @@ class AbsencesApi
   #    personio and returns an array of absences models
   def all(start_date: Date.today.beginning_of_month, end_date: Date.today)
     # Query absences
-    url = "/company/time-offs?start_date=#{start_date}&to=#{end_date}"
+    url = "/company/time-offs?start_date=#{start_date}&end_date=#{end_date}"
     data = get(url)
     data.map do |entry|
       if entry['attributes']['status'] != 'approved'
